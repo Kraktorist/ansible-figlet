@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# Copyright: (c) 2018, Terry Jones <terry.jones@example.org>
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 from __future__ import (absolute_import, division, print_function)
 from turtle import width
 __metaclass__ = type
@@ -48,42 +46,38 @@ options:
 # Specify this value according to your collection
 # in format of namespace.collection.doc_fragment_name
 extends_documentation_fragment:
-    - my_namespace.my_collection.my_doc_fragment_name
+    - mkraktorist.figlet.my_doc_fragment_name
 
 author:
-    - Your Name (@yourGitHubHandle)
+    - Kraktorist (@kraktorist)
 '''
 
 EXAMPLES = r'''
 # Pass in a message
 - name: Test with a message
-  my_namespace.my_collection.figlet:
+  kraktorist.figlet.figlet:
     name: hello world
 
 # pass in a message and have changed true
 - name: Test with a message and changed output
-  my_namespace.my_collection.figlet:
+  kraktorist.figlet.figlet:
     name: hello world
     font: standard
 
-# fail the module
-- name: Test failure of the module
-  my_namespace.my_collection.figlet:
-    name: fail me
 '''
 
 RETURN = r'''
 # These are examples of possible return values, and in general should use other names for return values.
-original_message:
-    description: The original name param that was passed in.
-    type: str
-    returned: always
-    sample: 'hello world'
 message:
-    description: The output message that the test module generates.
+    description: The output message that the module generates.
     type: str
     returned: always
-    sample: 'goodbye'
+    sample: |
+         __                        ____
+        / /  ___  _______ __ _    /  _/__  ___ __ ____ _
+       / /__/ _ \/ __/ -_)  ' \  _/ // _ \(_-</ // /  ' \
+      /____/\___/_/  \__/_/_/_/ /___/ .__/___/\_,_/_/_/_/
+
 '''
 
 from ansible.module_utils.basic import AnsibleModule
@@ -125,8 +119,6 @@ def run_module():
     if module.check_mode:
         module.exit_json(**result)
 
-    # manipulate or modify the state as needed (this is going to be the
-    # part where your module will do what it needs to do)
     f = Figlet(
         font=module.params['font'],
         width=module.params['width'],
@@ -134,7 +126,7 @@ def run_module():
         justify=module.params['justify']
     )
     result['message'] = f.renderText(module.params['name'])
-
+    result['changed'] = True
     module.exit_json(**result)
 
 
