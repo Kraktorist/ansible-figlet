@@ -70,7 +70,7 @@ message:
     returned: always
     sample: |
     
-
+      (Lorem Ipsum with hashtags)
       ###                               ###
        #                                 #
        #                                 #
