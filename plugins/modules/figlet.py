@@ -69,6 +69,7 @@ message:
     type: str
     returned: always
     sample: |
+    
       ###                               ###
        #                                 #
        #                                 #
