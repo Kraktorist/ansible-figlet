@@ -1,0 +1,15 @@
+- name: test my new module
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: figlet
+      include_tasks: "figlet.yml"
+      loop:
+        - big
+        - block
+        - bubble
+        - digital
+        - lean
+        - smscript
+        - smslant
+        - xsbook

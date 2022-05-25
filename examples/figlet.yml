@@ -1,0 +1,11 @@
+- name: run the new module
+  kraktorist.figlet.figlet:
+    name: FIGlet
+    font: "{{ item }}"
+    width: 80
+    direction: 1
+    justify: center
+  register: testout
+- name: dump test output
+  debug:
+    msg: '{{ testout }}'
