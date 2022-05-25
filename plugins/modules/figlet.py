@@ -14,7 +14,7 @@ short_description: Transform a string to ASCII image
 # i.e. the version is of the form "2.5.0" and not "2.4".
 version_added: "1.0.0"
 
-description: This is a copy of figlet module http://www.figlet.org/ for Ansible.
+description: This is a clone of the famous program for Ansible.
 
 options:
     name:
@@ -73,11 +73,16 @@ message:
     type: str
     returned: always
     sample: |
-         __                        ____
-        / /  ___  _______ __ _    /  _/__  ___ __ ____ _
-       / /__/ _ \/ __/ -_)  ' \  _/ // _ \(_-</ // /  ' \
-      /____/\___/_/  \__/_/_/_/ /___/ .__/___/\_,_/_/_/_/
-
+      ###                               ###
+       #                                 #
+       #                                 #
+       #      ##  ## #  ##  # ## ##      #  # ##   ### #  #  # ## ##
+       #     #  #  ##  #  #  #  #  #     #   #  # #    #  #   #  #  #
+       #   # #  #  #   ####  #  #  #     #   #  #  ##  #  #   #  #  #
+       #   # #  #  #   #     #  #  #     #   #  #    # #  #   #  #  #
+      ######  ##  ###   ### ### ## ##   ###  ###  ###   ## # ### ## ##
+                                             #
+                                            ###
 '''
 
 from ansible.module_utils.basic import AnsibleModule
