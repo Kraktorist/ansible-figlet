@@ -71,6 +71,8 @@ message:
     sample: |
     
       (Lorem Ipsum with hashtags)
+
+      
       ###                               ###
        #                                 #
        #                                 #
