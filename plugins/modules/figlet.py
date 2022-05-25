@@ -43,10 +43,6 @@ options:
             - Text alignment ('auto', 'center', 'left', 'right')
         required: false
         type: str
-# Specify this value according to your collection
-# in format of namespace.collection.doc_fragment_name
-extends_documentation_fragment:
-    - mkraktorist.figlet.my_doc_fragment_name
 
 author:
     - Kraktorist (@kraktorist)
