@@ -1,4 +1,4 @@
-- name: run the new module
+- name: convert to ASCII
   kraktorist.figlet.figlet:
     name: FIGlet
     font: "{{ item }}"
@@ -6,6 +6,6 @@
     direction: 1
     justify: center
   register: testout
-- name: dump test output
+- name: dump ASCII output
   debug:
-    msg: '{{ testout }}'
+    msg: '{{ testout.message }}'

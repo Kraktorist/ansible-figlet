@@ -1,4 +1,4 @@
-- name: test my new module
+- name: test FIGlet
   hosts: localhost
   gather_facts: false
   tasks:
