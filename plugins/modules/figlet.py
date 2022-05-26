@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 from __future__ import (absolute_import, division, print_function)
-# from turtle import width
 __metaclass__ = type
 
 DOCUMENTATION = r'''
@@ -87,7 +86,15 @@ message:
 
 from ansible.module_utils.basic import AnsibleModule
 
-from pyfiglet import Figlet
+import traceback
+
+try:
+    from pyfiglet import Figlet
+except ImportError:
+    HAS_ANOTHER_LIBRARY = False
+    ANOTHER_LIBRARY_IMPORT_ERROR = traceback.format_exc()
+else:
+    HAS_ANOTHER_LIBRARY = True
 
 
 def run_module():
@@ -117,6 +124,12 @@ def run_module():
         argument_spec=module_args,
         supports_check_mode=True
     )
+
+    if not HAS_ANOTHER_LIBRARY:
+        # Needs: from ansible.module_utils.basic import missing_required_lib
+        module.fail_json(
+            msg=missing_required_lib('another_library'),
+            exception=ANOTHER_LIBRARY_IMPORT_ERROR)
 
     # if the user is working with this module in only check mode we do not
     # want to make any changes to the environment, just return the current
