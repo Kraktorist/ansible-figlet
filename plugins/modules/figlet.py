@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from __future__ import (absolute_import, division, print_function)
-from turtle import width
+# from turtle import width
 __metaclass__ = type
 
 DOCUMENTATION = r'''
