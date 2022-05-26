@@ -1,7 +1,18 @@
 - name: test FIGlet
   hosts: localhost
-  gather_facts: false
+  gather_facts: true
   tasks:
+    - name: install pip and setuptools
+      become: true
+      package:
+        name: 
+        - python3-pip
+        - python-setuptools
+    - name: install pyfiglet
+      become: true
+      pip:
+        name: 
+          - pyfiglet
     - name: figlet
       include_tasks: "figlet.yml"
       loop:
