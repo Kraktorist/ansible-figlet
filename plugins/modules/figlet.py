@@ -45,7 +45,7 @@ options:
     changed:
         description:
             - return that the module changed something or not
-        required: true
+        required: false
         default: false
         type: bool
 
@@ -111,7 +111,7 @@ def run_module():
         width=dict(type='int', required=False, default=80),
         direction=dict(type='raw', required=False, default='auto'),
         justify=dict(type='str', required=False, default='auto'),
-        changed=dict(type='bool', required=True, default=False),
+        changed=dict(type='bool', required=False, default=False),
     )
 
     # seed the result dict in the object
