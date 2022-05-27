@@ -42,6 +42,12 @@ options:
             - Text alignment ('auto', 'center', 'left', 'right')
         required: false
         type: str
+    changed:
+        description:
+            - return that the module changed something or not
+        required: true
+        default: false
+        type: bool
 
 author:
     - Kraktorist (@kraktorist)
@@ -105,6 +111,7 @@ def run_module():
         width=dict(type='int', required=False, default=80),
         direction=dict(type='raw', required=False, default='auto'),
         justify=dict(type='str', required=False, default='auto'),
+        changed=dict(type='bool', required=True, default=false),
     )
 
     # seed the result dict in the object
@@ -144,7 +151,7 @@ def run_module():
         justify=module.params['justify']
     )
     result['message'] = f.renderText(module.params['name'])
-    result['changed'] = True
+    result['changed'] = module.params['changed']
     module.exit_json(**result)
 
 
