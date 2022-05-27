@@ -22,6 +22,12 @@ https://github.com/pwaller/pyfiglet
 
 ### Installation
 
+```console
+ansible-galaxy collection install git+https://github.com/Kraktorist/ansible-figlet.git
+```
+
+or
+
 ```yaml
 # requirements.yaml
 
