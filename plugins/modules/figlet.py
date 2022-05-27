@@ -135,7 +135,7 @@ def run_module():
     if not HAS_ANOTHER_LIBRARY:
         # Needs: from ansible.module_utils.basic import missing_required_lib
         module.fail_json(
-            msg="Python module pyfiglet is not installed",
+            msg="Python module pyfiglet is not found. You can try to install it with 'pip install pyfiglet'",
             exception=ANOTHER_LIBRARY_IMPORT_ERROR)
 
     # if the user is working with this module in only check mode we do not
